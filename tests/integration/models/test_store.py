@@ -41,7 +41,7 @@ class StoreTest(BaseTest):
 
             test_store.save_to_db()
 
-            expected = {'name': "test_store", 'items': []}
+            expected = {'id': 1, 'name': "test_store", 'items': []}
             self.assertEqual(test_store.json(), expected)
 
     def test_store_json_one(self):
@@ -52,7 +52,7 @@ class StoreTest(BaseTest):
             test_store.save_to_db()
             test_item.save_to_db()
 
-            expected = {'name': "test_store", 'items': [{'name': "test", 'price': 0.0}]}
+            expected = {'id': 1, 'name': "test_store", 'items': [{'name': "test", 'price': 0.0}]}
             self.assertEqual(test_store.json(), expected)
 
     def test_store_json_many(self):
@@ -65,7 +65,8 @@ class StoreTest(BaseTest):
             test_item1.save_to_db()
             test_item2.save_to_db()
 
-            expected = {'name': "test_store",
+            expected = {'id': 1,
+                        'name': "test_store",
                         'items': [
                             {'name': "test", 'price': 0.0},
                             {'name': "piano", 'price': 1000.0},
